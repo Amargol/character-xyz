@@ -1,6 +1,6 @@
 # character-xyz
 
-Deployed page: https://character-76gaqey0l-amargol.vercel.app/  
+Deployed page: https://character-9a1wihrb1-amargol.vercel.app/erc1155
   
 Contract deployed to Rinkeby testnet  
 Contract Address: [0x8ac89bE2A904308fe6b01Db4a44CE8507801a250](https://rinkeby.etherscan.io/address/0x8ac89be2a904308fe6b01db4a44ce8507801a250)

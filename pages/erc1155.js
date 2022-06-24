@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import { ethers } from 'ethers'
 import CharacterItemsABI from "../abi/CharacterItems.json"
 
-import { Heading, Center, VStack, Button, useDisclosure, Select, Spinner } from '@chakra-ui/react'
+import { Heading, Center, VStack, Button, useDisclosure, Select, Spinner, Link, ExternalLinkIcon } from '@chakra-ui/react'
 
 import {
   Modal,
@@ -80,33 +80,39 @@ export default function Home() {
   } else {
     return (
       <Center >
-        <VStack maxWidth={500} spacing={3} paddingY={10} paddingX={100} marginX={10} marginY={50} backgroundColor={"gray.100"} borderRadius={30} >
-          <Select placeholder='Select option' value={itemId.toString()} onChange={(e) => onChangeItem(parseInt(e.target.value) || 0)} backgroundColor={"white"}>
-            <option value='0'>Sword</option>
-            <option value='1'>Shield</option>
-          </Select>
-  
-          <Heading size='lg'>You have {balance.toString()} {itemText}</Heading>
-          <Button colorScheme='blue' onClick={mint}>Mint {itemText}</Button>
-  
-          <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>Congratulations 🎉</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                Your {itemText} has been minted. <br></br>
-                The transaction will be reflected on chain shortly! 
-              </ModalBody>
-  
-              <ModalFooter>
-                {/* <Button variant='ghost'>Secondary Action</Button> */}
-                <Button colorScheme='blue' mr={10} onClick={onClose}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </ModalContent>
-          </Modal>
+        <VStack>
+          <VStack maxWidth={500} spacing={3} paddingY={10} paddingX={100} marginX={10} marginTop={50} marginBottom={5} backgroundColor={"gray.100"} borderRadius={30} >
+            <Select placeholder='Select option' value={itemId.toString()} onChange={(e) => onChangeItem(parseInt(e.target.value) || 0)} backgroundColor={"white"}>
+              <option value='0'>Sword</option>
+              <option value='1'>Shield</option>
+            </Select>
+    
+            <Heading size='lg'>You have {balance.toString()} {itemText}</Heading>
+            <Button colorScheme='blue' onClick={mint}>Mint {itemText}</Button>
+    
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Congratulations 🎉</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  Your {itemText} has been minted. <br></br>
+                  The transaction will be reflected on chain shortly! 
+                </ModalBody>
+    
+                <ModalFooter>
+                  {/* <Button variant='ghost'>Secondary Action</Button> */}
+                  <Button colorScheme='blue' mr={10} onClick={onClose}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+          </VStack>
+
+          <Link href='https://github.com/Amargol/character-xyz' isExternal colorScheme={"blue"}>
+            Github 🔗
+          </Link>
         </VStack>
       </Center>
     )
