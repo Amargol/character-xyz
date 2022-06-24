@@ -61,7 +61,7 @@ export default function Home() {
   async function mint () {
     let contract = await getContract()
 
-    let res = await contract.mintItem(1)
+    let res = await contract.mintItem(itemId)
 
     onOpen()
   }
